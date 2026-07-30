@@ -52,15 +52,11 @@
     .btn-outline { border: 1px solid #2a2a3a; color: #e4e4e7; }
     .btn-outline:hover { border-color: #6366f1; background: rgba(99,102,241,0.08); }
 
-    .hero-photo {
-      flex-shrink: 0;
-      position: relative;
-    }
+    .hero-photo { flex-shrink: 0; position: relative; }
     .hero-photo .photo-frame {
       width: 280px; height: 280px; border-radius: 50%;
       background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
-      padding: 4px;
-      position: relative;
+      padding: 4px; position: relative;
       animation: float 6s ease-in-out infinite;
     }
     .hero-photo .photo-frame img {
@@ -86,14 +82,11 @@
       50% { opacity: 1; transform: scale(1.1); }
     }
 
-    /* 3D Tech Stack */
     .tech-strip {
       padding: 48px 0 40px;
       background: radial-gradient(ellipse at 50% 100%, #1a1a2e 0%, #0a0a0f 70%);
     }
-    .tech-strip h3 {
-      text-align: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 40px;
-    }
+    .tech-strip h3 { text-align: center; font-size: 1.5rem; font-weight: 700; margin-bottom: 40px; }
     .tech-strip h3 span { color: #6366f1; }
     .tech-grid {
       display: flex; justify-content: center; flex-wrap: wrap; gap: 32px; perspective: 1000px;
@@ -129,7 +122,6 @@
       transition: color .3s;
     }
     .tech-icon-3d:hover .label { color: #818cf8; }
-    /* Tech icon colors */
     .icon-java i { color: #007396; }
     .icon-spring i { color: #6DB33F; }
     .icon-aws i { color: #FF9900; }
@@ -139,6 +131,14 @@
     .icon-mysql i { color: #4479A1; }
     .icon-postgres i { color: #336791; }
     .icon-git i { color: #F05032; }
+    .icon-hibernate i { color: #59666C; }
+    .icon-openshift i { color: #EE0000; }
+    .icon-gradle i { color: #02303A; }
+    .icon-maven i { color: #C71A36; }
+    .icon-github i { color: #FFF; }
+    .icon-gitlab i { color: #FC6D26; }
+    .icon-linux i { color: #FCC624; }
+    .icon-intellij i { color: #FE2857; }
 
     section { padding: 96px 0; }
     .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 48px; }
@@ -228,6 +228,7 @@
       <div class="hero-photo">
         <div class="photo-glow"></div>
         <div class="photo-frame">
+          <!-- Replace with: <img src="your-photo.jpg" alt="Your Name"> -->
           <div class="placeholder">YP</div>
         </div>
       </div>
@@ -238,42 +239,23 @@
     <div class="container">
       <h3>Tech <span>Stack</span></h3>
       <div class="tech-grid">
-        <div class="tech-icon-3d icon-java">
-          <i class="devicon-java-plain"></i>
-          <span class="label">Java</span>
-        </div>
-        <div class="tech-icon-3d icon-spring">
-          <i class="devicon-spring-original"></i>
-          <span class="label">Spring Boot</span>
-        </div>
-        <div class="tech-icon-3d icon-aws">
-          <i class="devicon-amazonwebservices-original"></i>
-          <span class="label">AWS</span>
-        </div>
-        <div class="tech-icon-3d icon-docker">
-          <i class="devicon-docker-plain"></i>
-          <span class="label">Docker</span>
-        </div>
-        <div class="tech-icon-3d icon-kafka">
-          <i class="devicon-apachekafka-original"></i>
-          <span class="label">Kafka</span>
-        </div>
-        <div class="tech-icon-3d icon-jenkins">
-          <i class="devicon-jenkins-plain"></i>
-          <span class="label">Jenkins</span>
-        </div>
-        <div class="tech-icon-3d icon-mysql">
-          <i class="devicon-mysql-plain"></i>
-          <span class="label">MySQL</span>
-        </div>
-        <div class="tech-icon-3d icon-postgres">
-          <i class="devicon-postgresql-plain"></i>
-          <span class="label">PostgreSQL</span>
-        </div>
-        <div class="tech-icon-3d icon-git">
-          <i class="devicon-git-plain"></i>
-          <span class="label">Git</span>
-        </div>
+        <div class="tech-icon-3d icon-java"><i class="devicon-java-plain"></i><span class="label">Java</span></div>
+        <div class="tech-icon-3d icon-spring"><i class="devicon-spring-original"></i><span class="label">Spring Boot</span></div>
+        <div class="tech-icon-3d icon-aws"><i class="devicon-amazonwebservices-original"></i><span class="label">AWS</span></div>
+        <div class="tech-icon-3d icon-docker"><i class="devicon-docker-plain"></i><span class="label">Docker</span></div>
+        <div class="tech-icon-3d icon-kafka"><i class="devicon-apachekafka-original"></i><span class="label">Kafka</span></div>
+        <div class="tech-icon-3d icon-jenkins"><i class="devicon-jenkins-plain"></i><span class="label">Jenkins</span></div>
+        <div class="tech-icon-3d icon-mysql"><i class="devicon-mysql-plain"></i><span class="label">MySQL</span></div>
+        <div class="tech-icon-3d icon-postgres"><i class="devicon-postgresql-plain"></i><span class="label">PostgreSQL</span></div>
+        <div class="tech-icon-3d icon-git"><i class="devicon-git-plain"></i><span class="label">Git</span></div>
+        <div class="tech-icon-3d icon-hibernate"><i class="devicon-hibernate-original"></i><span class="label">Hibernate</span></div>
+        <div class="tech-icon-3d icon-openshift"><i class="devicon-openshift-plain"></i><span class="label">OpenShift</span></div>
+        <div class="tech-icon-3d icon-gradle"><i class="devicon-gradle-plain"></i><span class="label">Gradle</span></div>
+        <div class="tech-icon-3d icon-maven"><i class="devicon-maven-plain"></i><span class="label">Maven</span></div>
+        <div class="tech-icon-3d icon-github"><i class="devicon-github-original"></i><span class="label">GitHub</span></div>
+        <div class="tech-icon-3d icon-gitlab"><i class="devicon-gitlab-plain"></i><span class="label">GitLab</span></div>
+        <div class="tech-icon-3d icon-linux"><i class="devicon-linux-plain"></i><span class="label">Linux</span></div>
+        <div class="tech-icon-3d icon-intellij"><i class="devicon-intellij-plain"></i><span class="label">IntelliJ</span></div>
       </div>
     </div>
   </div>
@@ -427,3 +409,6 @@
   </footer>
 </body>
 </html>
+18 tech icons with 3D hover effects: Java, Spring Boot, AWS, Docker, Kafka, Jenkins, MySQL, PostgreSQL, Git, Hibernate, OpenShift, Gradle, Maven, GitHub, GitLab, Linux, IntelliJ IDEA.
+To add your photo: Replace the placeholder div with:
+<img src="your-photo.jpg" alt="Your Name">
