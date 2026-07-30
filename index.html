@@ -114,8 +114,10 @@
     }
     .tech-icon-3d:hover::before { opacity: 1; }
     .tech-icon-3d:hover::after { opacity: 1; }
-    .tech-icon-3d i { transition: transform .4s; }
-    .tech-icon-3d:hover i { transform: translateZ(12px) scale(1.1); }
+   .tech-icon-3d i,
+.tech-icon-3d img { transition: transform .4s; }
+.tech-icon-3d:hover i,
+.tech-icon-3d:hover img { transform: translateZ(12px) scale(1.1); }
     .tech-icon-3d .label {
       position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
       font-size: 0.7rem; font-weight: 500; color: #71717a; white-space: nowrap;
@@ -242,15 +244,15 @@
       <div class="tech-grid">
         <div class="tech-icon-3d icon-java"><i class="devicon-java-plain"></i><span class="label">Java</span></div>
         <div class="tech-icon-3d icon-spring"><i class="devicon-spring-original"></i><span class="label">Spring Boot</span></div>
-        <div class="tech-icon-3d icon-aws"><i class="devicon-amazonwebservices-original"></i><span class="label">AWS</span></div>
+        <div class="tech-icon-3d icon-aws"> <img src="https://cdn.simpleicons.org/amazonwebservices/FF9900" alt="AWS" style="width:42px;height:42px"><span class="label">AWS</span></div>
         <div class="tech-icon-3d icon-docker"><i class="devicon-docker-plain"></i><span class="label">Docker</span></div>
         <div class="tech-icon-3d icon-kafka"><i class="devicon-apachekafka-original"></i><span class="label">Kafka</span></div>
         <div class="tech-icon-3d icon-jenkins"><i class="devicon-jenkins-plain"></i><span class="label">Jenkins</span></div>
         <div class="tech-icon-3d icon-mysql"><i class="devicon-mysql-plain"></i><span class="label">MySQL</span></div>
         <div class="tech-icon-3d icon-postgres"><i class="devicon-postgresql-plain"></i><span class="label">PostgreSQL</span></div>
         <div class="tech-icon-3d icon-git"><i class="devicon-git-plain"></i><span class="label">Git</span></div>
-        <div class="tech-icon-3d icon-hibernate"><i class="devicon-hibernate-original"></i><span class="label">Hibernate</span></div>
-        <div class="tech-icon-3d icon-openshift"><i class="devicon-openshift-plain"></i><span class="label">OpenShift</span></div>
+        <div class="tech-icon-3d icon-hibernate"> <i class="devicon-hibernate-plain"></i><span class="label">Hibernate</span></div>
+        <div class="tech-icon-3d icon-openshift"> <img src="https://cdn.simpleicons.org/redhatopenshift/EE0000" alt="OpenShift" style="width:42px;height:42px"><span class="label">OpenShift</span></div>
         <div class="tech-icon-3d icon-gradle"><i class="devicon-gradle-plain"></i><span class="label">Gradle</span></div>
         <div class="tech-icon-3d icon-maven"><i class="devicon-maven-plain"></i><span class="label">Maven</span></div>
         <div class="tech-icon-3d icon-github"><i class="devicon-github-original"></i><span class="label">GitHub</span></div>
