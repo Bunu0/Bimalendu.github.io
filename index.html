@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backend Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0f;
+      color: #e4e4e7;
+      line-height: 1.6;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(10,10,15,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1f1f2a;
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    nav .logo { font-weight: 800; font-size: 1.25rem; color: #fff; }
+    nav .logo span { color: #6366f1; }
+    nav ul { display: flex; gap: 32px; list-style: none; }
+    nav a { text-decoration: none; color: #a1a1aa; font-size: 0.9rem; font-weight: 500; transition: color .2s; }
+    nav a:hover { color: #fff; }
+
+    /* Hero */
+    .hero {
+      padding: 160px 0 100px;
+      background: radial-gradient(ellipse at 50% 0%, #1a1a2e 0%, #0a0a0f 70%);
+    }
+    .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+    .hero h1 span { background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.1rem; color: #a1a1aa; max-width: 600px; margin-bottom: 32px; }
+    .hero-badge {
+      display: inline-block; padding: 6px 16px; border-radius: 100px; font-size: 0.8rem; font-weight: 600;
+      background: rgba(99,102,241,0.15); color: #818cf8; margin-bottom: 24px; border: 1px solid rgba(99,102,241,0.25);
+    }
+    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 8px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all .2s;
+    }
+    .btn-primary { background: #6366f1; color: #fff; }
+    .btn-primary:hover { background: #4f46e5; transform: translateY(-2px); }
+    .btn-outline { border: 1px solid #2a2a3a; color: #e4e4e7; }
+    .btn-outline:hover { border-color: #6366f1; background: rgba(99,102,241,0.08); }
+
+    /* Sections */
+    section { padding: 96px 0; }
+    .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 48px; }
+    .section-title span { color: #6366f1; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .skill-card {
+      background: #12121a; border: 1px solid #1f1f2a; border-radius: 12px; padding: 28px;
+      transition: border-color .3s;
+    }
+    .skill-card:hover { border-color: #6366f1; }
+    .skill-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: #fff; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      padding: 4px 14px; border-radius: 6px; font-size: 0.8rem; font-weight: 500;
+      background: #1a1a2a; color: #a1a1aa; border: 1px solid #252535;
+    }
+
+    /* Experience */
+    .exp-card {
+      background: #12121a; border: 1px solid #1f1f2a; border-radius: 12px; padding: 32px; margin-bottom: 24px;
+    }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+    .exp-header h3 { font-size: 1.15rem; font-weight: 700; color: #fff; }
+    .exp-header .company { color: #818cf8; font-weight: 600; }
+    .exp-header .date { color: #71717a; font-size: 0.85rem; }
+    .exp-sub { color: #a1a1aa; font-size: 0.9rem; margin-bottom: 16px; }
+    .exp-card ul { list-style: none; }
+    .exp-card li {
+      position: relative; padding-left: 20px; margin-bottom: 8px; color: #a1a1aa; font-size: 0.92rem;
+    }
+    .exp-card li::before { content: '›'; position: absolute; left: 0; color: #6366f1; font-weight: 700; }
+
+    /* Projects */
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .project-card {
+      background: #12121a; border: 1px solid #1f1f2a; border-radius: 12px; padding: 28px;
+      transition: border-color .3s, transform .2s;
+    }
+    .project-card:hover { border-color: #6366f1; transform: translateY(-4px); }
+    .project-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .project-card p { color: #a1a1aa; font-size: 0.9rem; margin-bottom: 16px; }
+    .project-card .tech { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-card .tech span {
+      padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 500;
+      background: #1a1a2a; color: #818cf8; border: 1px solid #252535;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #1f1f2a; padding: 32px 0; text-align: center; color: #52525b; font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      nav ul { gap: 16px; }
+      .exp-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">&lt;<span>dev</span>/&gt;</div>
+      <ul>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">2.5+ Years Experience</div>
+      <h1>Java Backend<br><span>Developer</span></h1>
+      <p>Cloud-native microservices engineer with deep expertise in Spring Boot, AWS, and building scalable, fault-tolerant backend systems.</p>
+      <div class="btn-group">
+        <a href="#experience" class="btn btn-primary">View Experience</a>
+        <a href="https://github.com/yourusername" target="_blank" class="btn btn-outline">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical <span>Skills</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Languages & Frameworks</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Java 8/11/17/21</span>
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Spring Batch</span>
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">Hibernate / JPA</span>
+            <span class="skill-tag">Apache Kafka</span>
+            <span class="skill-tag">System Design</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Cloud & DevOps</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS (S3, Batch, RDS, CloudWatch)</span>
+            <span class="skill-tag">OpenShift</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Databases & Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">DB2</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Maven / Gradle</span>
+            <span class="skill-tag">Git / GitHub / GitLab</span>
+            <span class="skill-tag">JFrog Artifactory</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Testing & Quality</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">JUnit</span>
+            <span class="skill-tag">Mockito</span>
+            <span class="skill-tag">WireMock</span>
+            <span class="skill-tag">Code Reviews</span>
+            <span class="skill-tag">Root-Cause Analysis</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>AI-Assisted Development</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Kiro</span>
+            <span class="skill-tag">Amazon Q</span>
+            <span class="skill-tag">GitHub Copilot</span>
+            <span class="skill-tag">Gemini (GCP AI)</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Security & Reliability</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">API Security</span>
+            <span class="skill-tag">High Availability</span>
+            <span class="skill-tag">Fault-Tolerant Design</span>
+            <span class="skill-tag">Scalability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Work <span>Experience</span></h2>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <h3>Software Engineer</h3>
+            <span class="company">Tech Mahindra</span>
+          </div>
+          <span class="date">Mar 2024 – Present</span>
+        </div>
+        <div class="exp-sub">Java • Spring Boot • Microservices • AWS • Kafka • Spring Batch • DB2 • Docker • Git • Jenkins</div>
+        <ul>
+          <li>Designed and maintained scalable, cloud-ready backend microservices using Java, Spring Boot, and REST APIs with clean, testable code.</li>
+          <li>Built Kafka-based asynchronous event processing for reliable service-to-service communication and improved scalability.</li>
+          <li>Optimized DB2 queries and backend logic, reducing API response latency and improving resource utilization.</li>
+          <li>Increased test coverage from 50% to 85%+ using JUnit, Mockito, and WireMock, strengthening system reliability.</li>
+          <li>Led code reviews, root-cause analysis, and production troubleshooting, supporting application security and high availability.</li>
+          <li>Implemented CI/CD pipelines with Jenkins and containerized deployments via OpenShift for consistent, secure releases.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <h3>Software Engineer – Mainframe Modernization</h3>
+            <span class="company">Tech Mahindra (Telecom Domain)</span>
+          </div>
+          <span class="date">Mar 2024 – Present</span>
+        </div>
+        <div class="exp-sub">Java 21 • Spring Boot • AWS Batch • S3 • RDS • CloudWatch • Docker • GitHub</div>
+        <ul>
+          <li>Migrated legacy mainframe applications to Java 21 and Spring Boot as part of an enterprise cloud modernization initiative.</li>
+          <li>Developed and deployed cloud-native batch applications on AWS Batch using Docker, ensuring scalable, repeatable job execution.</li>
+          <li>Integrated AWS S3, RDS, and CloudWatch for storage, job orchestration, monitoring, and centralized logging — improving observability.</li>
+          <li>Optimized batch/SQL processing, cutting execution time for 100K records from 3 hours to 30 minutes (~83%), boosting scalability.</li>
+          <li>Designed and enhanced payment processing workflows, ensuring data accuracy and secure handling of transactional data.</li>
+          <li>Leveraged AI-assisted tools (Kiro, Amazon Q, GCP AI tools) to accelerate code conversion, development, and documentation.</li>
+          <li>Used GitHub-based version control, participated in code reviews, and collaborated cross-functionally on production releases.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Personal <span>Projects</span></h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Library Book Management System</h3>
+          <p>Spring Boot MVC app with JSP UI for book search, issue, and CRUD operations; controller-service architecture with MySQL persistence.</p>
+          <div class="tech">
+            <span>Spring Boot</span>
+            <span>MVC</span>
+            <span>JSP</span>
+            <span>MySQL</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>District Employment Exchange System</h3>
+          <p>Spring Boot platform for candidate registration, MySQL-backed profiles, skill-matching, and automated notifications. Built during internship 2023–24.</p>
+          <div class="tech">
+            <span>Spring Boot</span>
+            <span>MySQL</span>
+            <span>REST API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Java Backend Developer. Built with &lt;3</p>
+    </div>
+  </footer>
+</body>
+</html>
