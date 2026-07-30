@@ -114,8 +114,11 @@
     }
     .tech-icon-3d:hover::before { opacity: 1; }
     .tech-icon-3d:hover::after { opacity: 1; }
-   .tech-icon-3d i { transition: transform .4s; }
-    .tech-icon-3d:hover i { transform: translateZ(12px) scale(1.1); }
+   .tech-icon-3d i,
+.tech-icon-3d img { transition: transform .4s; }
+.tech-icon-3d:hover i,
+.tech-icon-3d:hover img { transform: translateZ(12px) scale(1.1); }
+
     .tech-icon-3d .label {
       position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
       font-size: 0.7rem; font-weight: 500; color: #71717a; white-space: nowrap;
